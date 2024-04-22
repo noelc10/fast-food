@@ -35,7 +35,7 @@ import '@ionic/vue/css/display.css';
 import './theme/variables.scss';
 
 /* App-related styles */
-import './app/app.scss';
+import './app/styles/app.scss';
 
 const app = createApp(App)
   .use(IonicVue)

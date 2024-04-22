@@ -59,7 +59,7 @@
     },
     setup () {
       function login () {
-        window.location = '/folder/Inbox'
+        window.location = '/home'
       }
 
       return {

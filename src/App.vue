@@ -3,26 +3,56 @@
     <ion-split-pane content-id="main-content">
       <ion-menu content-id="main-content" type="overlay">
         <ion-content>
-          <ion-list id="inbox-list">
-            <ion-list-header>Inbox</ion-list-header>
-            <ion-note>hi@ionicframework.com</ion-note>
+          <ion-list id="navbar-list">
+            <ion-grid>
+              <ion-row class="ion-justify-content-between">
+                <ion-col size="4" class="ion-align-self-center">
+                  <ion-avatar>
+                    <img src="/src/assets/navbar/avatar.svg" alt="Avatar" />
+                  </ion-avatar>
+                </ion-col>
+                <ion-col size="8" class="ion-align-self-center">
+                  <ion-list class="px-0 acc-points-sec">
+                    <ion-item lines="none" :detail="false" class="hydrated">
+                      <ion-icon aria-hidden="true" slot="start" class="mr-4" :ios="'/src/assets/navbar/crown.svg'" :md="'/src/assets/navbar/crown.svg'"></ion-icon>
+                      <ion-label class="ion-label-with-ion-icon">
+                        0 Points
+                        <ion-icon aria-hidden="true" size="small" color="primary" class="ml-2" :ios="chevronForward" :md="chevronForward"></ion-icon>
+                      </ion-label>
+                    </ion-item>
+                  </ion-list>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-list-header class="mb-1">Chou Tzuyu</ion-list-header>
+            <ion-note>+63 912 345 6789</ion-note>
 
-            <ion-menu-toggle :auto-hide="false" v-for="(p, i) in appPages" :key="i">
-              <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
+            <ion-menu-toggle :auto-hide="false" v-for="(p, i) in navbarPages" :key="i">
+              <ion-item v-if="p.title === 'Home' || p.title === 'Order Now'" @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
                 <ion-icon aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
                 <ion-label>{{ p.title }}</ion-label>
+                <ion-badge v-if="p.badge" slot="end">{{ p.badge.count }}</ion-badge>
+              </ion-item>
+              <ion-item v-else @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated">
+                <ion-icon aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
+                <ion-label>{{ p.title }}</ion-label>
+                <ion-badge v-if="p.badge" slot="end" :color="p.badge.color">{{ p.badge.count }}</ion-badge>
               </ion-item>
             </ion-menu-toggle>
           </ion-list>
 
-          <ion-list id="labels-list">
-            <ion-list-header>Labels</ion-list-header>
-
-            <ion-item v-for="(label, index) in labels" lines="none" :key="index">
-              <ion-icon aria-hidden="true" slot="start" :ios="bookmarkOutline" :md="bookmarkSharp"></ion-icon>
-              <ion-label>{{ label }}</ion-label>
-            </ion-item>
+          <ion-list id="navbar-2-list">
+            <ion-menu-toggle :auto-hide="false" v-for="(p, i) in navbar2Pages" :key="i">
+              <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated">
+                <ion-icon aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
+                <ion-label>{{ p.title }}</ion-label>
+                <ion-badge v-if="p.badge" slot="end" :color="p.badge.color">{{ p.badge.count }}</ion-badge>
+              </ion-item>
+            </ion-menu-toggle>
           </ion-list>
+          <div class="logout-btn-container">
+            <ion-button buttonType="button" color="primary" size="default" class="shadow-none logout-btn" @click="logout">Logout</ion-button>
+          </div>
         </ion-content>
       </ion-menu>
       <ion-router-outlet id="main-content"></ion-router-outlet>
@@ -45,72 +75,94 @@ import {
   IonRouterOutlet,
   IonSplitPane,
 } from '@ionic/vue';
-import { ref } from 'vue';
 import {
-  archiveOutline,
-  archiveSharp,
-  bookmarkOutline,
-  bookmarkSharp,
-  heartOutline,
-  heartSharp,
-  mailOutline,
-  mailSharp,
-  paperPlaneOutline,
-  paperPlaneSharp,
-  trashOutline,
-  trashSharp,
-  warningOutline,
-  warningSharp,
+  chevronForward
 } from 'ionicons/icons';
+import { ref } from 'vue';
 
 const selectedIndex = ref(0);
-const appPages = [
+const navbarPages = [
   {
-    title: 'Inbox',
-    url: '/folder/Inbox',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp,
+    title: 'Home',
+    url: '/home',
+    iosIcon: '/src/assets/navbar/icons/home.svg',
+    mdIcon: '/src/assets/navbar/icons/home.svg',
   },
   {
-    title: 'Outbox',
-    url: '/folder/Outbox',
-    iosIcon: paperPlaneOutline,
-    mdIcon: paperPlaneSharp,
+    title: 'Order Now',
+    url: '/order',
+    iosIcon: '/src/assets/navbar/icons/order-now.svg',
+    mdIcon: '/src/assets/navbar/icons/order-now.svg',
   },
   {
-    title: 'Favorites',
-    url: '/folder/Favorites',
-    iosIcon: heartOutline,
-    mdIcon: heartSharp,
+    title: 'Notifications',
+    url: '/notifications',
+    iosIcon: '/src/assets/navbar/icons/notifications.svg',
+    mdIcon: '/src/assets/navbar/icons/notifications.svg',
+    badge: {
+      count: 4
+    }
   },
   {
-    title: 'Archived',
-    url: '/folder/Archived',
-    iosIcon: archiveOutline,
-    mdIcon: archiveSharp,
+    title: 'Store Locator',
+    url: '/store-locator',
+    iosIcon: '/src/assets/navbar/icons/store-locator.svg',
+    mdIcon: '/src/assets/navbar/icons/store-locator.svg',
   },
   {
-    title: 'Trash',
-    url: '/folder/Trash',
-    iosIcon: trashOutline,
-    mdIcon: trashSharp,
-  },
-  {
-    title: 'Spam',
-    url: '/folder/Spam',
-    iosIcon: warningOutline,
-    mdIcon: warningSharp,
-  },
+    title: `FAQ's`,
+    url: '/faqs',
+    iosIcon: '/src/assets/navbar/icons/faqs.svg',
+    mdIcon: '/src/assets/navbar/icons/faqs.svg',
+  }
 ];
-const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+const navbar2Pages = [
+  {
+    title: 'My Orders',
+    url: '/my-orders',
+    iosIcon: '/src/assets/navbar/icons/my-orders.svg',
+    mdIcon: '/src/assets/navbar/icons/my-orders.svg',
+    badge: {
+      count: 2
+    }
+  },
+  {
+    title: 'My Account',
+    url: '/my-account',
+    iosIcon: '/src/assets/navbar/icons/my-account.svg',
+    mdIcon: '/src/assets/navbar/icons/my-account.svg',
+  },
+  {
+    title: 'My Favorites',
+    url: '/my-favorites',
+    iosIcon: '/src/assets/navbar/icons/my-favorites.svg',
+    mdIcon: '/src/assets/navbar/icons/my-favorites.svg',
+  },
+  {
+    title: 'Order Tracker',
+    url: '/order-tracker',
+    iosIcon: '/src/assets/navbar/icons/order-tracker.svg',
+    mdIcon: '/src/assets/navbar/icons/order-tracker.svg',
+  },
+  {
+    title: 'Order History',
+    url: '/order-history',
+    iosIcon: '/src/assets/navbar/icons/order-history.svg',
+    mdIcon: '/src/assets/navbar/icons/order-history.svg',
+  }
+];
 
 const path = window.location.pathname.split('folder/')[1];
 if (path !== undefined) {
-  selectedIndex.value = appPages.findIndex((page) => page.title.toLowerCase() === path.toLowerCase());
+  selectedIndex.value = navbarPages.findIndex((page) => page.title.toLowerCase() === path.toLowerCase());
+}
+
+function logout () {
+  window.location = '/login'
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 }
@@ -123,7 +175,7 @@ ion-menu.md ion-content {
 }
 
 ion-menu.md ion-list {
-  padding: 20px 0;
+  padding: 0;
 }
 
 ion-menu.md ion-note {
@@ -135,24 +187,20 @@ ion-menu.md ion-note {
   padding-left: 10px;
 }
 
-ion-menu.md ion-list#inbox-list {
+ion-menu.md ion-list#navbar-list {
   border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
 }
 
-ion-menu.md ion-list#inbox-list ion-list-header {
+ion-menu.md ion-list#navbar-list ion-list-header {
   font-size: 22px;
   font-weight: 600;
-
   min-height: 20px;
 }
 
-ion-menu.md ion-list#labels-list ion-list-header {
+ion-menu.md ion-list#navbar-2-list ion-list-header {
   font-size: 16px;
-
   margin-bottom: 18px;
-
   color: #757575;
-
   min-height: 26px;
 }
 
@@ -171,7 +219,7 @@ ion-menu.md ion-item.selected ion-icon {
 }
 
 ion-menu.md ion-item ion-icon {
-  color: #616e7e;
+  color: #DEE2E6;
 }
 
 ion-menu.md ion-item ion-label {
@@ -206,7 +254,7 @@ ion-menu.ios ion-item ion-icon {
   color: #73849a;
 }
 
-ion-menu.ios ion-list#labels-list ion-list-header {
+ion-menu.ios ion-list#navbar-2-list ion-list-header {
   margin-bottom: 8px;
 }
 
@@ -223,11 +271,38 @@ ion-menu.ios ion-note {
 ion-note {
   display: inline-block;
   font-size: 16px;
-
   color: var(--ion-color-medium-shade);
 }
 
 ion-item.selected {
-  --color: var(--ion-color-primary);
+  --color: var(--ion-color-primary) !important;
+}
+
+ion-badge {
+  --background: #EDBE4C;
+  --padding-end: 7px;
+  --padding-start: 7px;
+  border-radius: 25px;
+}
+
+ion-list.acc-points-sec {
+  & > ion-item {
+    width: max-content;
+
+    & > ion-label {
+      width: auto;
+    }
+  }
+}
+
+ion-button.logout-btn {
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  width: 165px;
+}
+
+.logout-btn-container {
+  position: fixed;
+  bottom: 25px;
 }
 </style>
