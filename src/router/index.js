@@ -6,18 +6,6 @@ const routes = [
     redirect: '/login'
   },
   {
-    path: '/login',
-    component: () => import ('../views/LoginPage.vue')
-  },
-  {
-    path: '/home',
-    component: () => import ('../views/HomePage.vue')
-  },
-  {
-    path: '/order',
-    component: () => import ('../views/OrderPage.vue')
-  },
-  {
     path: '/notifications',
     redirect: '/home'
   },
@@ -48,7 +36,22 @@ const routes = [
   {
     path: '/order-history',
     redirect: '/home'
-  }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import ('../views/LoginPage.vue')
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: () => import ('../views/HomePage.vue')
+  },
+  {
+    path: '/order',
+    name: 'order',
+    component: () => import ('../views/OrderPage.vue')
+  },
 ]
 
 const router = createRouter({

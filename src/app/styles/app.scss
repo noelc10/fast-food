@@ -6,93 +6,104 @@
   font-style: italic;
   font-weight: 200 1000;
   font-display: swap;
-  src: url('../assets/fonts/XRXX3I6Li01BKofIMNaORs7nczIHNHI.woff2') format('woff2');
+  src: url('/src/assets/fonts/XRXX3I6Li01BKofIMNaORs7nczIHNHI.woff2') format('woff2');
   unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
+
 /* cyrillic */
 @font-face {
   font-family: 'Nunito';
   font-style: italic;
   font-weight: 200 1000;
   font-display: swap;
-  src: url('../assets/fonts/XRXX3I6Li01BKofIMNaHRs7nczIHNHI.woff2') format('woff2');
+  src: url('/src/assets/fonts/XRXX3I6Li01BKofIMNaHRs7nczIHNHI.woff2') format('woff2');
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
+
 /* vietnamese */
 @font-face {
   font-family: 'Nunito';
   font-style: italic;
   font-weight: 200 1000;
   font-display: swap;
-  src: url('../assets/fonts/XRXX3I6Li01BKofIMNaMRs7nczIHNHI.woff2') format('woff2');
+  src: url('/src/assets/fonts/XRXX3I6Li01BKofIMNaMRs7nczIHNHI.woff2') format('woff2');
   unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
 }
+
 /* latin-ext */
 @font-face {
   font-family: 'Nunito';
   font-style: italic;
   font-weight: 200 1000;
   font-display: swap;
-  src: url('../assets/fonts/XRXX3I6Li01BKofIMNaNRs7nczIHNHI.woff2') format('woff2');
+  src: url('/src/assets/fonts/XRXX3I6Li01BKofIMNaNRs7nczIHNHI.woff2') format('woff2');
   unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
+
 /* latin */
 @font-face {
   font-family: 'Nunito';
   font-style: italic;
   font-weight: 200 1000;
   font-display: swap;
-  src: url('../assets/fonts/XRXX3I6Li01BKofIMNaDRs7nczIH.woff2') format('woff2');
+  src: url('/src/assets/fonts/XRXX3I6Li01BKofIMNaDRs7nczIH.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 /* cyrillic-ext */
 @font-face {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 200 1000;
   font-display: swap;
-  src: url('../assets/fonts/XRXV3I6Li01BKofIOOaBTMnFcQIG.woff2') format('woff2');
+  src: url('/src/assets/fonts/XRXV3I6Li01BKofIOOaBTMnFcQIG.woff2') format('woff2');
   unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
+
 /* cyrillic */
 @font-face {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 200 1000;
   font-display: swap;
-  src: url('../assets/fonts/XRXV3I6Li01BKofIMeaBTMnFcQIG.woff2') format('woff2');
+  src: url('/src/assets/fonts/XRXV3I6Li01BKofIMeaBTMnFcQIG.woff2') format('woff2');
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
+
 /* vietnamese */
 @font-face {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 200 1000;
   font-display: swap;
-  src: url('../assets/fonts/XRXV3I6Li01BKofIOuaBTMnFcQIG.woff2') format('woff2');
+  src: url('/src/assets/fonts/XRXV3I6Li01BKofIOuaBTMnFcQIG.woff2') format('woff2');
   unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
 }
+
 /* latin-ext */
 @font-face {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 200 1000;
   font-display: swap;
-  src: url('../assets/fonts/XRXV3I6Li01BKofIO-aBTMnFcQIG.woff2') format('woff2');
+  src: url('/src/assets/fonts/XRXV3I6Li01BKofIO-aBTMnFcQIG.woff2') format('woff2');
   unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
+
 /* latin */
 @font-face {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 200 1000;
   font-display: swap;
-  src: url('../assets/fonts/XRXV3I6Li01BKofINeaBTMnFcQ.woff2') format('woff2');
+  src: url('/src/assets/fonts/XRXV3I6Li01BKofINeaBTMnFcQ.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 * {
   font-family: 'Nunito', sans-serif;
+  --ion-default-font: 'Nunito', sans-serif;
+  --ion-font-family: 'Nunito', sans-serif;
 }
 
 
@@ -114,12 +125,224 @@ $screen-breakpoints: (
   }
 }
 
+.flex {
+  display: flex !important;
+}
+
+.inline-flex {
+  display: inline-flex !important;
+}
+
+.grow {
+  flex-grow: 1 !important;
+}
+
+.grow-0 {
+  flex-grow: 0 !important;
+}
+
+.basis-0 {
+  flex-basis: 0px !important;
+}
+
+.basis-auto {
+  flex-basis: auto !important;
+}
+
+.basis-px {
+  flex-basis: 1px !important;
+}
+
+.flex-row {
+  flex-direction: row !important;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+.flex-col {
+  flex-direction: column !important;
+}
+
+.flex-col-reverse {
+  flex-direction: column-reverse !important;
+}
+
+.flex-wrap {
+  flex-wrap: wrap !important;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse !important;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+
+.flex-1 {
+  flex: 1 1 0% !important;
+}
+
+.flex-auto {
+  flex: 1 1 auto !important;
+}
+
+.flex-initial {
+  flex: 0 1 auto !important;
+}
+
+.flex-inherit {
+  flex: 1 0 auto !important;
+}
+
+.flex-none {
+  flex: none !important;
+}
+
+.shrink {
+  flex-shrink: 1 !important;
+}
+
+.shrink-0 {
+  flex-shrink: 0 !important;
+}
+
+.justify-normal {
+  justify-content: normal !important;
+}
+
+.justify-start {
+  justify-content: flex-start !important;
+}
+
+.justify-end {
+  justify-content: flex-end !important;
+}
+
+.justify-center {
+  justify-content: center !important;
+}
+
+.justify-between {
+  justify-content: space-between !important;
+}
+
+.justify-around {
+  justify-content: space-around !important;
+}
+
+.justify-evenly {
+  justify-content: space-evenly !important;
+}
+
+.justify-stretch {
+  justify-content: stretch !important;
+}
+
+.items-start {
+  align-items: flex-start !important;
+}
+
+.items-end {
+  align-items: flex-end !important;
+}
+
+.items-center {
+  align-items: center !important;
+}
+
+.items-baseline {
+  align-items: baseline !important;
+}
+
+.items-stretch {
+  align-items: stretch !important;
+}
+
+.self-auto {
+  align-self: auto !important;
+}
+
+.self-start {
+  align-self: flex-start !important;
+}
+
+.self-end {
+  align-self: flex-end !important;
+}
+
+.self-center {
+  align-self: center !important;
+}
+
+.self-stretch {
+  align-self: stretch !important;
+}
+
+.self-baseline {
+  align-self: baseline !important;
+}
+
+.place-items-start {
+  place-items: start !important;
+}
+
+.place-items-end {
+  place-items: end !important;
+}
+
+.place-items-center {
+  place-items: center !important;
+}
+
+.place-items-baseline {
+  place-items: baseline !important;
+}
+
+.place-items-stretch {
+  place-items: stretch !important;
+}
+
+.overflow-y {
+  overflow-y: auto !important;
+}
+
 .shadow-none {
   box-shadow: none !important;
 }
 
 .m-0 {
-  margin: 0;
+  margin: 0 !important;
+}
+
+.mt-0 {
+  margin-top: 0px !important;
+}
+
+.mt-1 {
+  margin-top: 4px !important;
+}
+
+.mt-2 {
+  margin-top: 8px !important;
+}
+
+.mt-3 {
+  margin-top: 12px !important;
+}
+
+.mt-4 {
+  margin-top: 16px !important;
+}
+
+.mt-5 {
+  margin-top: 20px !important;
+}
+
+.mb-0 {
+  margin-bottom: 0px !important;
 }
 
 .mb-1 {
@@ -182,9 +405,99 @@ $screen-breakpoints: (
   margin-right: 20px !important;
 }
 
+.mx-0 {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.mx-1 {
+  margin-left: 4px !important;
+  margin-right: 4px !important;
+}
+
+.mx-2 {
+  margin-left: 8px !important;
+  margin-right: 8px !important;
+}
+
+.mx-3 {
+  margin-left: 12px !important;
+  margin-right: 12px !important;
+}
+
+.mx-4 {
+  margin-left: 16px !important;
+  margin-right: 16px !important;
+}
+
+.mx-5 {
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+}
+
+.my-0 {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.my-1 {
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
+}
+
+.my-2 {
+  margin-top: 8px !important;
+  margin-bottom: 8px !important;
+}
+
+.my-3 {
+  margin-top: 12px !important;
+  margin-bottom: 12px !important;
+}
+
+.my-4 {
+  margin-top: 16px !important;
+  margin-bottom: 16px !important;
+}
+
+.my-5 {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
 .px-0 {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.py-0 {
   padding-top: 0px !important;
   padding-bottom: 0px !important;
+}
+
+.py-1 {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+.py-2 {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+.py-3 {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+
+.py-4 {
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+.py-5 {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
 }
 
 .pt-0 {
@@ -203,26 +516,44 @@ $screen-breakpoints: (
   font-weight: bold;
 }
 
-ion-input {
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+hr.separator {
+  background-color: #DEE2E6;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+ion-input,
+ion-searchbar {
   margin: 8px 0;
   border: 1px solid #DEE2E6;
   border-radius: 16px;
   transition: all .1s ease-in-out;
+  background-color: #F8F9FA;
 
   &.has-focus {
     border: 1px solid #6C757D;
   }
 
-  & > .input-wrapper {
+  &>.input-wrapper {
     padding: 0 16px !important;
 
-    & > .label-text-wrapper {
+    &>.label-text-wrapper {
       color: #6C757D !important;
     }
 
-    & > .input-highlight {
+    &>.input-highlight {
       display: none;
     }
+  }
+
+  &>.searchbar-input-container {
+    --box-shadow: none;
   }
 }
 

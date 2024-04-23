@@ -8,13 +8,13 @@
               <ion-row class="ion-justify-content-between">
                 <ion-col size="4" class="ion-align-self-center">
                   <ion-avatar>
-                    <img src="/src/assets/navbar/avatar.svg" alt="Avatar" />
+                    <img src="/src/assets/images/navbar/avatar.svg" alt="Avatar" />
                   </ion-avatar>
                 </ion-col>
                 <ion-col size="8" class="ion-align-self-center">
                   <ion-list class="px-0 acc-points-sec">
                     <ion-item lines="none" :detail="false" class="hydrated">
-                      <ion-icon aria-hidden="true" slot="start" class="mr-4" :ios="'/src/assets/navbar/crown.svg'" :md="'/src/assets/navbar/crown.svg'"></ion-icon>
+                      <ion-icon aria-hidden="true" slot="start" class="mr-4" :ios="'/src/assets/images/navbar/crown.svg'" :md="'/src/assets/images/navbar/crown.svg'"></ion-icon>
                       <ion-label class="ion-label-with-ion-icon">
                         0 Points
                         <ion-icon aria-hidden="true" size="small" color="primary" class="ml-2" :ios="chevronForward" :md="chevronForward"></ion-icon>
@@ -28,22 +28,22 @@
             <ion-note>+63 912 345 6789</ion-note>
 
             <ion-menu-toggle :auto-hide="false" v-for="(p, i) in navbarPages" :key="i">
-              <ion-item v-if="p.title === 'Home' || p.title === 'Order Now'" @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
+              <ion-item v-if="p.title === 'Home' || p.title === 'Order Now'" @click="redirect(p.url)" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: $route.name === p.name }">
                 <ion-icon aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
                 <ion-label>{{ p.title }}</ion-label>
                 <ion-badge v-if="p.badge" slot="end">{{ p.badge.count }}</ion-badge>
               </ion-item>
-              <ion-item v-else @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated">
+              <ion-item v-else @click="redirect(p.url)" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated">
                 <ion-icon aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
                 <ion-label>{{ p.title }}</ion-label>
                 <ion-badge v-if="p.badge" slot="end" :color="p.badge.color">{{ p.badge.count }}</ion-badge>
               </ion-item>
             </ion-menu-toggle>
           </ion-list>
-
+          <hr class="separator" />
           <ion-list id="navbar-2-list">
             <ion-menu-toggle :auto-hide="false" v-for="(p, i) in navbar2Pages" :key="i">
-              <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated">
+              <ion-item @click="redirect(p.url)" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated">
                 <ion-icon aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
                 <ion-label>{{ p.title }}</ion-label>
                 <ion-badge v-if="p.badge" slot="end" :color="p.badge.color">{{ p.badge.count }}</ion-badge>
@@ -61,9 +61,16 @@
 </template>
 
 <script setup>
+// import { useRouter } from 'vue-router';
 import {
   IonApp,
+  IonAvatar,
+  IonButton,
   IonContent,
+  IonCol,
+  IonGrid,
+  IonRow,
+  IonBadge,
   IonIcon,
   IonItem,
   IonLabel,
@@ -74,31 +81,37 @@ import {
   IonNote,
   IonRouterOutlet,
   IonSplitPane,
+  useIonRouter
 } from '@ionic/vue';
 import {
   chevronForward
 } from 'ionicons/icons';
-import { ref } from 'vue';
+// import { ref } from 'vue';
 
-const selectedIndex = ref(0);
+// const router = useRouter();
+const ionRouter = useIonRouter();
+// const selectedIndex = ref(0);
 const navbarPages = [
   {
     title: 'Home',
     url: '/home',
-    iosIcon: '/src/assets/navbar/icons/home.svg',
-    mdIcon: '/src/assets/navbar/icons/home.svg',
+    name: 'home',
+    iosIcon: '/src/assets/images/navbar/icons/home.svg',
+    mdIcon: '/src/assets/images/navbar/icons/home.svg',
   },
   {
     title: 'Order Now',
     url: '/order',
-    iosIcon: '/src/assets/navbar/icons/order-now.svg',
-    mdIcon: '/src/assets/navbar/icons/order-now.svg',
+    name: 'order',
+    iosIcon: '/src/assets/images/navbar/icons/order-now.svg',
+    mdIcon: '/src/assets/images/navbar/icons/order-now.svg',
   },
   {
     title: 'Notifications',
     url: '/notifications',
-    iosIcon: '/src/assets/navbar/icons/notifications.svg',
-    mdIcon: '/src/assets/navbar/icons/notifications.svg',
+    name: 'notifications',
+    iosIcon: '/src/assets/images/navbar/icons/notifications.svg',
+    mdIcon: '/src/assets/images/navbar/icons/notifications.svg',
     badge: {
       count: 4
     }
@@ -106,22 +119,25 @@ const navbarPages = [
   {
     title: 'Store Locator',
     url: '/store-locator',
-    iosIcon: '/src/assets/navbar/icons/store-locator.svg',
-    mdIcon: '/src/assets/navbar/icons/store-locator.svg',
+    name: 'store-locator',
+    iosIcon: '/src/assets/images/navbar/icons/store-locator.svg',
+    mdIcon: '/src/assets/images/navbar/icons/store-locator.svg',
   },
   {
     title: `FAQ's`,
     url: '/faqs',
-    iosIcon: '/src/assets/navbar/icons/faqs.svg',
-    mdIcon: '/src/assets/navbar/icons/faqs.svg',
+    name: 'faqs',
+    iosIcon: '/src/assets/images/navbar/icons/faqs.svg',
+    mdIcon: '/src/assets/images/navbar/icons/faqs.svg',
   }
 ];
 const navbar2Pages = [
   {
     title: 'My Orders',
     url: '/my-orders',
-    iosIcon: '/src/assets/navbar/icons/my-orders.svg',
-    mdIcon: '/src/assets/navbar/icons/my-orders.svg',
+    name: 'my-orders',
+    iosIcon: '/src/assets/images/navbar/icons/my-orders.svg',
+    mdIcon: '/src/assets/images/navbar/icons/my-orders.svg',
     badge: {
       count: 2
     }
@@ -129,32 +145,39 @@ const navbar2Pages = [
   {
     title: 'My Account',
     url: '/my-account',
-    iosIcon: '/src/assets/navbar/icons/my-account.svg',
-    mdIcon: '/src/assets/navbar/icons/my-account.svg',
+    name: 'my-account',
+    iosIcon: '/src/assets/images/navbar/icons/my-account.svg',
+    mdIcon: '/src/assets/images/navbar/icons/my-account.svg',
   },
   {
     title: 'My Favorites',
     url: '/my-favorites',
-    iosIcon: '/src/assets/navbar/icons/my-favorites.svg',
-    mdIcon: '/src/assets/navbar/icons/my-favorites.svg',
+    name: 'my-favorites',
+    iosIcon: '/src/assets/images/navbar/icons/my-favorites.svg',
+    mdIcon: '/src/assets/images/navbar/icons/my-favorites.svg',
   },
   {
     title: 'Order Tracker',
     url: '/order-tracker',
-    iosIcon: '/src/assets/navbar/icons/order-tracker.svg',
-    mdIcon: '/src/assets/navbar/icons/order-tracker.svg',
+    name: 'order-tracker',
+    iosIcon: '/src/assets/images/navbar/icons/order-tracker.svg',
+    mdIcon: '/src/assets/images/navbar/icons/order-tracker.svg',
   },
   {
     title: 'Order History',
     url: '/order-history',
-    iosIcon: '/src/assets/navbar/icons/order-history.svg',
-    mdIcon: '/src/assets/navbar/icons/order-history.svg',
+    name: 'order-history',
+    iosIcon: '/src/assets/images/navbar/icons/order-history.svg',
+    mdIcon: '/src/assets/images/navbar/icons/order-history.svg',
   }
 ];
+// const path = window.location.pathname.split('folder/')[1];
+// if (path !== undefined) {
+//   selectedIndex.value = navbarPages.findIndex((page) => page.title.toLowerCase() === path.toLowerCase());
+// }
 
-const path = window.location.pathname.split('folder/')[1];
-if (path !== undefined) {
-  selectedIndex.value = navbarPages.findIndex((page) => page.title.toLowerCase() === path.toLowerCase());
+function redirect (url) {
+  ionRouter.push(url)
 }
 
 function logout () {
@@ -185,10 +208,6 @@ ion-menu.md ion-note {
 ion-menu.md ion-list-header,
 ion-menu.md ion-note {
   padding-left: 10px;
-}
-
-ion-menu.md ion-list#navbar-list {
-  border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
 }
 
 ion-menu.md ion-list#navbar-list ion-list-header {
