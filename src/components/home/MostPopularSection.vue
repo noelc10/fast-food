@@ -35,9 +35,6 @@
 
 <script setup>
 import { ref } from 'vue';
-import {
-  IonIcon
-} from '@ionic/vue';
 
 const foods = ref([
   {

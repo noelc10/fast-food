@@ -61,7 +61,6 @@
 </template>
 
 <script setup>
-// import { useRouter } from 'vue-router';
 import {
   IonApp,
   IonAvatar,
@@ -86,11 +85,8 @@ import {
 import {
   chevronForward
 } from 'ionicons/icons';
-// import { ref } from 'vue';
 
-// const router = useRouter();
 const ionRouter = useIonRouter();
-// const selectedIndex = ref(0);
 const navbarPages = [
   {
     title: 'Home',
@@ -171,10 +167,6 @@ const navbar2Pages = [
     mdIcon: '/src/assets/images/navbar/icons/order-history.svg',
   }
 ];
-// const path = window.location.pathname.split('folder/')[1];
-// if (path !== undefined) {
-//   selectedIndex.value = navbarPages.findIndex((page) => page.title.toLowerCase() === path.toLowerCase());
-// }
 
 function redirect (url) {
   ionRouter.push(url)

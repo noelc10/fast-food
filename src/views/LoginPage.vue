@@ -36,7 +36,6 @@
 </template>
 
 <script>
-  // import { useRouter } from 'vue-router';
   import {
     IonContent,
     IonHeader,
@@ -59,10 +58,7 @@
       IonInput
     },
     setup () {
-      // const router = useRouter();
-
       function login () {
-        // router.push('/home')
         window.location = '/home';
       }
 
