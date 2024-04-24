@@ -15,7 +15,7 @@
                   <ion-list class="px-0 acc-points-sec">
                     <ion-item lines="none" :detail="false" class="hydrated">
                       <ion-icon aria-hidden="true" slot="start" class="mr-4" :ios="'/src/assets/images/navbar/crown.svg'" :md="'/src/assets/images/navbar/crown.svg'"></ion-icon>
-                      <ion-label class="ion-label-with-ion-icon">
+                      <ion-label class="font-bold">
                         0 Points
                         <ion-icon aria-hidden="true" size="small" color="primary" class="ml-2" :ios="chevronForward" :md="chevronForward"></ion-icon>
                       </ion-label>
@@ -28,12 +28,12 @@
             <ion-note>+63 912 345 6789</ion-note>
 
             <ion-menu-toggle :auto-hide="false" v-for="(p, i) in navbarPages" :key="i">
-              <ion-item v-if="p.title === 'Home' || p.title === 'Order Now'" @click="redirect(p.url)" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: $route.name === p.name }">
+              <ion-item v-if="p.title === 'Home' || p.title === 'Order Now'" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: $route.name === p.name }">
                 <ion-icon aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
                 <ion-label>{{ p.title }}</ion-label>
                 <ion-badge v-if="p.badge" slot="end">{{ p.badge.count }}</ion-badge>
               </ion-item>
-              <ion-item v-else @click="redirect(p.url)" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated">
+              <ion-item v-else router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated">
                 <ion-icon aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
                 <ion-label>{{ p.title }}</ion-label>
                 <ion-badge v-if="p.badge" slot="end" :color="p.badge.color">{{ p.badge.count }}</ion-badge>
@@ -43,7 +43,7 @@
           <hr class="separator" />
           <ion-list id="navbar-2-list">
             <ion-menu-toggle :auto-hide="false" v-for="(p, i) in navbar2Pages" :key="i">
-              <ion-item @click="redirect(p.url)" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated">
+              <ion-item router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated">
                 <ion-icon aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
                 <ion-label>{{ p.title }}</ion-label>
                 <ion-badge v-if="p.badge" slot="end" :color="p.badge.color">{{ p.badge.count }}</ion-badge>
@@ -79,14 +79,12 @@ import {
   IonMenuToggle,
   IonNote,
   IonRouterOutlet,
-  IonSplitPane,
-  useIonRouter
+  IonSplitPane
 } from '@ionic/vue';
 import {
   chevronForward
 } from 'ionicons/icons';
 
-const ionRouter = useIonRouter();
 const navbarPages = [
   {
     title: 'Home',
@@ -97,8 +95,8 @@ const navbarPages = [
   },
   {
     title: 'Order Now',
-    url: '/order',
-    name: 'order',
+    url: '/products',
+    name: 'products',
     iosIcon: '/src/assets/images/navbar/icons/order-now.svg',
     mdIcon: '/src/assets/images/navbar/icons/order-now.svg',
   },
@@ -168,12 +166,8 @@ const navbar2Pages = [
   }
 ];
 
-function redirect (url) {
-  ionRouter.push(url)
-}
-
 function logout () {
-  window.location = '/login'
+  window.location = '/login';
 }
 </script>
 
@@ -291,8 +285,9 @@ ion-item.selected {
 
 ion-badge {
   --background: #EDBE4C;
-  --padding-end: 7px;
-  --padding-start: 7px;
+  --padding-end: 9px;
+  --padding-start: 9px;
+  --padding-top: 7px;
   border-radius: 25px;
 }
 

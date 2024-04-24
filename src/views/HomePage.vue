@@ -2,33 +2,25 @@
   <ion-page>
     <ion-header :translucent="true" class="shadow-none">
       <ion-toolbar>
-        <ion-grid color="light">
-          <ion-row class="ion-justify-content-between">
-            <ion-col size="3" class="hide-lg ion-align-self-center">
-              <ion-menu-toggle>
-                <ion-button fill="clear" class="menu-btn">
-                  <ion-icon color="primary" size="large" :ios="'/src/assets/images/navbar/icons/navbar.svg'" :md="'/src/assets/images/navbar/icons/navbar.svg'" />
-                </ion-button>
-              </ion-menu-toggle>
-            </ion-col>
-            <ion-col class="ion-align-self-center">
-              <ion-list class="px-0 acc-points-sec">
-                <ion-item lines="none" :detail="false" class="hydrated">
-                  <img class="mr-4" alt="Loyalty Badge" :src="'/src/assets/images/navbar/crown.svg'" />
-                  <ion-label class="ion-label-with-ion-icon">
-                    0 Points
-                    <ion-icon aria-hidden="true" size="small" color="primary" class="ml-2" :ios="chevronForward" :md="chevronForward"></ion-icon>
-                  </ion-label>
-                </ion-item>
-              </ion-list>
-            </ion-col>
-            <ion-col size="3" class="ion-align-self-center">
-              <ion-avatar class="avatar-sm ion-float-right">
-                <img src="/src/assets/images/navbar/avatar.svg" alt="Avatar" />
-              </ion-avatar>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+        <div class="flex flex-row items-center">
+          <div class="grow-0">
+            <ion-menu-toggle>
+              <ion-button fill="clear">
+                <ion-icon color="primary" size="large" :ios="'/src/assets/images/navbar/icons/navbar.svg'" :md="'/src/assets/images/navbar/icons/navbar.svg'" />
+              </ion-button>
+            </ion-menu-toggle>
+          </div>
+          <div class="flex items-center grow px-4 py-5">
+            <img class="mr-4" alt="Loyalty Badge" :src="'/src/assets/images/navbar/crown.svg'" />
+            <ion-label class="font-bold">
+              0 Points
+              <ion-icon aria-hidden="true" size="small" color="primary" class="ml-2 self-center" :ios="chevronForward" :md="chevronForward"></ion-icon>
+            </ion-label>
+          </div>
+          <div class="px-4 flex grow-0 items-center">
+            <ion-icon class="home-header-avatar" size="large" src="/src/assets/images/navbar/avatar.svg"></ion-icon>
+          </div>
+        </div>
       </ion-toolbar>
     </ion-header>
 
@@ -55,7 +47,10 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <search-bar-section />
+            <search-bar-section
+              :placeholder="'try our new Steak Fries Veggies'"
+              :start-icon="'/src/assets/images/search.svg'"
+            />
           </ion-col>
         </ion-row>
         <ion-row>
@@ -81,7 +76,7 @@
       </ion-grid>
 
       <ion-fab class="fab-btn" slot="fixed" vertical="bottom" horizontal="end">
-        <ion-fab-button @click="order">
+        <ion-fab-button @click="products">
           Order Now!
         </ion-fab-button>
       </ion-fab>
@@ -90,25 +85,22 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
 import {
-  IonAvatar,
   IonButton,
   IonCol,
   IonContent,
   IonGrid,
   IonHeader,
   IonIcon,
-  IonItem,
   IonLabel,
-  IonList,
   IonMenuToggle,
   IonPage,
   IonRow,
   IonTitle,
   IonToolbar,
   IonFab,
-  IonFabButton,
-  useIonRouter
+  IonFabButton
 } from '@ionic/vue';
 import {
   chevronForward
@@ -119,10 +111,10 @@ import CategorySection from '/src/components/home/CategorySection.vue';
 import WhatsNewSection from '/src/components/home/WhatsNewSection.vue';
 import MostPopularSection from '/src/components/home/MostPopularSection.vue';
 
-const ionRouter = useIonRouter()
+const router = useRouter()
 
-function order () {
-  ionRouter.push('/order')
+function products () {
+  router.push('/products')
 }
 </script>
 

@@ -1,10 +1,5 @@
 <template>
   <div>
-    <div class="flex justify-between place-items-center most-popular-setion-header">
-      <div class="flex-inherit">
-        <h2 class="font-bold">Most Popular</h2>
-      </div>
-    </div>
     <div class="flex flex-wrap justify-start most-popular-container">
       <div
         v-for="(product, i) in products"

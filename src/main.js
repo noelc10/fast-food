@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router';
 
@@ -36,11 +37,17 @@ import './theme/variables.scss';
 
 /* App-related styles */
 import './app/styles/app.scss';
+import { useProductStore } from '@/store/productStore.js';
 
+const pinia = createPinia()
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
+  .use(router)
+  .use(pinia);
+const productStore = useProductStore();
 
 router.isReady().then(() => {
   app.mount('#app');
+
+  productStore.getProducts();
 });
