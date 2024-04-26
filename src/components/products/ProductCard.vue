@@ -13,7 +13,13 @@
       <div class="mt-4 flex justify-between items-center food-card-details">
         <div class="food-card-details-price">P {{ props.product.price }}</div>
         <div class="food-card-details-rating">
-          <img alt="Rating" :src="'/src/assets/images/foods/rating.svg'" />
+          <vue3-star-rating
+            v-model="rating"
+            starColor="#FFC02E"
+            inactiveColor="#A8AAAB"
+            :starSize="12"
+            :disableClick="true"
+          ></vue3-star-rating>
         </div>
       </div>
     </div>
@@ -21,6 +27,7 @@
 </template>
 
 <script setup>
+import { ref, watch } from 'vue';
 import { defineProps } from 'vue';
 
 const props = defineProps({
@@ -29,6 +36,17 @@ const props = defineProps({
     default: () => { return null }
   }
 })
+const rating = ref(0);
+
+watch(
+  () => props.product,
+  (newVal) => {
+    rating.value = newVal?.rating || 0;
+  },
+  {
+    immediate: true
+  }
+)
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>

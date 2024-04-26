@@ -16,7 +16,8 @@ export const useProductStore = defineStore('productStore', {
           title: 'Steak Fries Veggies',
           type: 'Meat',
           price: '175',
-          rating: 4.5
+          rating: 4.5,
+          description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.'
         },
         {
           id: 2,
@@ -24,7 +25,8 @@ export const useProductStore = defineStore('productStore', {
           title: 'Chicken Salad',
           type: 'Chicken',
           price: '172',
-          rating: 4.5
+          rating: 4.5,
+          description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.'
         },
         {
           id: 3,
@@ -32,7 +34,8 @@ export const useProductStore = defineStore('productStore', {
           title: 'Sorvetes Primavera ..',
           type: 'Dessert',
           price: '185',
-          rating: 4.5
+          rating: 4.5,
+          description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.'
         },
         {
           id: 4,
@@ -40,7 +43,8 @@ export const useProductStore = defineStore('productStore', {
           title: 'Fried Chicken',
           type: 'Chicken',
           price: '175',
-          rating: 4.5
+          rating: 4.5,
+          description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.'
         },
         {
           id: 5,
@@ -48,7 +52,8 @@ export const useProductStore = defineStore('productStore', {
           title: 'Steak Fries Veggies',
           type: 'Meat',
           price: '175',
-          rating: 4.5
+          rating: 4.5,
+          description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.'
         },
         {
           id: 6,
@@ -56,7 +61,8 @@ export const useProductStore = defineStore('productStore', {
           title: 'Chicken Salad',
           type: 'Chicken',
           price: '172',
-          rating: 4.5
+          rating: 4.5,
+          description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.'
         },
         {
           id: 7,
@@ -64,7 +70,8 @@ export const useProductStore = defineStore('productStore', {
           title: 'Sorvetes Primavera ..',
           type: 'Dessert',
           price: '185',
-          rating: 4.5
+          rating: 4.5,
+          description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.'
         },
         {
           id: 8,
@@ -72,15 +79,14 @@ export const useProductStore = defineStore('productStore', {
           title: 'Fried Chicken',
           type: 'Chicken',
           price: '175',
-          rating: 4.5
+          rating: 4.5,
+          description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.'
         }
       ]
-
-      return this.products
     },
 
     getProduct (id) {
-      return find(this.products, { id: id });
+      this.product = find(this.products, { 'id': Number(id) });
     },
 
     clearProducts () {

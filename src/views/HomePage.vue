@@ -74,13 +74,15 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-
-      <ion-fab class="fab-btn" slot="fixed" vertical="bottom" horizontal="end">
-        <ion-fab-button @click="products">
-          Order Now!
-        </ion-fab-button>
-      </ion-fab>
     </ion-content>
+    <br />
+    <br />
+    <br />
+    <ion-fab class="fab-btn" slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button @click="products">
+        Order Now!
+      </ion-fab-button>
+    </ion-fab>
   </ion-page>
 </template>
 
@@ -114,7 +116,7 @@ import MostPopularSection from '/src/components/home/MostPopularSection.vue';
 const router = useRouter()
 
 function products () {
-  router.push('/products')
+  router.replace('/products')
 }
 </script>
 
@@ -139,20 +141,6 @@ ion-button.menu-btn {
       padding-left: 0px !important;
       padding-right: 0px !important;
     }
-  }
-}
-
-ion-fab {
-  margin-bottom: var(--ion-safe-area-bottom, 0);
-
-  & > ion-fab-button {
-    --background: #d71921;
-    --background-activated: #b41119;
-    --background-hover: #d9353d;
-    --border-radius: 16px;
-    --color: white;
-    font-weight: 700;
-    width: 161px;
   }
 }
 </style>

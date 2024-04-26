@@ -5,6 +5,8 @@ import router from './router';
 
 import { IonicVue } from '@ionic/vue';
 
+import vue3StarRatings from 'vue3-star-ratings';
+
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
 
@@ -46,8 +48,10 @@ const app = createApp(App)
   .use(pinia);
 const productStore = useProductStore();
 
+productStore.getProducts();
+
+app.component('vue3-star-rating', vue3StarRatings);
+
 router.isReady().then(() => {
   app.mount('#app');
-
-  productStore.getProducts();
 });

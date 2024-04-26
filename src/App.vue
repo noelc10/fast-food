@@ -51,7 +51,7 @@
             </ion-menu-toggle>
           </ion-list>
           <div class="logout-btn-container">
-            <ion-button buttonType="button" color="primary" size="default" class="shadow-none logout-btn" @click="logout">Logout</ion-button>
+            <ion-button buttonType="button" color="primary" size="default" class="logout-btn" @click="logout">Logout</ion-button>
           </div>
         </ion-content>
       </ion-menu>
@@ -304,6 +304,7 @@ ion-list.acc-points-sec {
 ion-button.logout-btn {
   --padding-top: 16px;
   --padding-bottom: 16px;
+  --box-shadow: none;
   width: 165px;
 }
 

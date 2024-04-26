@@ -73,11 +73,6 @@ import ProductsSection from '/src/components/products/ProductsSection.vue';
   width: 37px;
 }
 
-.products-header-cart-icon {
-  width: 22.5px;
-  height: 19.12px
-}
-
 ion-item ion-label {
   font-weight: 500;
 }

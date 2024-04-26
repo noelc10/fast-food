@@ -26,7 +26,7 @@
         <br />
         <br />
         <ion-button buttonType="button" color="primary" expand="block" size="large" @click="login">Login</ion-button>
-        <ion-button buttonType="button" color="primary" fill="clear" expand="block" size="large">Login as Guest</ion-button>
+        <ion-button buttonType="button" color="primary" fill="clear" expand="block" size="large" @click="login">Login as Guest</ion-button>
       </form>
       <div class="ion-text-center shadow-none footer">
         <ion-toolbar>
@@ -53,7 +53,7 @@ import {
 const router = useRouter();
 
 function login () {
-  router.push('/home');
+  router.replace('/home');
 }
 </script>
 

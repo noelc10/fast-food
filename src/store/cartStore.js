@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { findIndex } from 'lodash'
+import { findIndex, each } from 'lodash'
 
 export const useCartStore = defineStore('cartStore', {
   state: () => ({
@@ -13,13 +13,27 @@ export const useCartStore = defineStore('cartStore', {
 
     addItemToCart (item) {
       const index = findIndex(this.cart, { id: item.id });
-      if (index) {
-        this.cart[index].count = this.cart[index].count++
+      if (index >= 0) {
+        this.cart[index].count += item.count
+        if (item.addons.length) {
+          each(item.addons, (addon, i) => {
+            let exist = findIndex(this.cart[index].addons, { id: addon.id });
+
+            if (exist >= 0) {
+              this.cart[index].addons[exist].count += addon.count
+            } else {
+              this.cart[index].addons[i] = addon
+            }
+          })
+        }
+
 
         return
       }
 
-      item.count = 1
+      !item.count
+        ? item.count = 1
+        : null
       this.cart.push(item);
     },
 
