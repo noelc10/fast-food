@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from '@ionic/vue-router';
+import { createRouter, createWebHistory } from '@ionic/vue-router'
 
 const routes = [
   {
@@ -40,22 +40,27 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: () => import ('../views/LoginPage.vue')
+    component: () => import ('@/views/LoginPage.vue')
   },
   {
     path: '/home',
     name: 'home',
-    component: () => import ('../views/HomePage.vue')
+    component: () => import ('@/views/HomePage.vue')
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: () => import ('@/views/profile/ProfilePage.vue')
   },
   {
     path: '/products',
     name: 'products',
-    component: () => import ('../views/products/ProductsPage.vue')
+    component: () => import ('@/views/products/ProductsPage.vue')
   },
   {
     path: '/products/:id',
     name: 'product-details',
-    component: () => import ('../views/products/ProductDetailsPage.vue')
+    component: () => import ('@/views/products/ProductDetailsPage.vue')
   },
 ]
 

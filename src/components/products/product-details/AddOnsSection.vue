@@ -46,13 +46,13 @@ import {
   defineEmits,
   ref,
   watch
-} from 'vue';
+} from 'vue'
 import {
   IonImg,
   IonText,
   IonCheckbox
-} from '@ionic/vue';
-import CartCount from '@/components/products/product-details/CartCount.vue';
+} from '@ionic/vue'
+import CartCount from '@/components/products/product-details/CartCount.vue'
 
 const emit = defineEmits(['toggleAddonsItem', 'updateAddonDataCount']);
 const props = defineProps({

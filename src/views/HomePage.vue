@@ -1,28 +1,6 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true" class="shadow-none">
-      <ion-toolbar>
-        <div class="flex flex-row items-center">
-          <div class="grow-0">
-            <ion-menu-toggle>
-              <ion-button fill="clear">
-                <ion-icon color="primary" size="large" :ios="'/src/assets/images/navbar/icons/navbar.svg'" :md="'/src/assets/images/navbar/icons/navbar.svg'" />
-              </ion-button>
-            </ion-menu-toggle>
-          </div>
-          <div class="flex items-center grow px-4 py-5">
-            <img class="mr-4" alt="Loyalty Badge" :src="'/src/assets/images/navbar/crown.svg'" />
-            <ion-label class="font-bold">
-              0 Points
-              <ion-icon aria-hidden="true" size="small" color="primary" class="ml-2 self-center" :ios="chevronForward" :md="chevronForward"></ion-icon>
-            </ion-label>
-          </div>
-          <div class="px-4 flex grow-0 items-center">
-            <ion-icon class="home-header-avatar" size="large" src="/src/assets/images/navbar/avatar.svg"></ion-icon>
-          </div>
-        </div>
-      </ion-toolbar>
-    </ion-header>
+    <app-header />
 
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
@@ -79,7 +57,7 @@
     <br />
     <br />
     <ion-fab class="fab-btn" slot="fixed" vertical="bottom" horizontal="end">
-      <ion-fab-button @click="products">
+      <ion-fab-button @click="() => router.replace('/products')">
         Order Now!
       </ion-fab-button>
     </ion-fab>
@@ -87,37 +65,34 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 import {
-  IonButton,
+  // IonButton,
   IonCol,
   IonContent,
   IonGrid,
   IonHeader,
   IonIcon,
-  IonLabel,
-  IonMenuToggle,
+  // IonLabel,
+  // IonMenuToggle,
   IonPage,
   IonRow,
   IonTitle,
   IonToolbar,
   IonFab,
   IonFabButton
-} from '@ionic/vue';
-import {
-  chevronForward
-} from 'ionicons/icons';
-import SearchBarSection from '/src/components/home/SearchBarSection.vue';
-import SpecialOffersSection from '/src/components/home/SpecialOffersSection.vue';
-import CategorySection from '/src/components/home/CategorySection.vue';
-import WhatsNewSection from '/src/components/home/WhatsNewSection.vue';
-import MostPopularSection from '/src/components/home/MostPopularSection.vue';
+} from '@ionic/vue'
+// import {
+//   chevronForward
+// } from 'ionicons/icons'
+import AppHeader from '@/components/header/AppHeader.vue'
+import SearchBarSection from '@/components/home/SearchBarSection.vue'
+import SpecialOffersSection from '@/components/home/SpecialOffersSection.vue'
+import CategorySection from '@/components/home/CategorySection.vue'
+import WhatsNewSection from '@/components/home/WhatsNewSection.vue'
+import MostPopularSection from '@/components/home/MostPopularSection.vue'
 
 const router = useRouter()
-
-function products () {
-  router.replace('/products')
-}
 </script>
 
 <style lang="scss" scoped>

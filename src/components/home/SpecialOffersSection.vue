@@ -9,7 +9,7 @@
           <ion-item lines="none" :detail="false" class="hydrated">
             <ion-label color="primary" class="mb-2 justify-end items-center self-end ion-label-with-ion-icon font-bold">
               View All
-              <ion-icon aria-hidden="true" size="small" color="primary" class="ml-2" :ios="chevronForward" :md="chevronForward"></ion-icon>
+              <ion-icon size="small" color="primary" class="ml-2" :ios="chevronForward" :md="chevronForward"></ion-icon>
             </ion-label>
           </ion-item>
         </ion-list>
@@ -29,16 +29,16 @@
 <script setup>
 import {
   ref
-} from 'vue';
+} from 'vue'
 import {
   IonList,
   IonItem,
   IonLabel,
   IonIcon
-} from '@ionic/vue';
+} from '@ionic/vue'
 import {
   chevronForward
-} from 'ionicons/icons';
+} from 'ionicons/icons'
 
 const couponCards = ref([
   {

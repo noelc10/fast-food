@@ -37,15 +37,15 @@
 import {
   defineProps,
   defineEmits
-} from 'vue';
+} from 'vue'
 import {
   IonSelect,
   IonSelectOption,
   IonButton
-} from '@ionic/vue';
+} from '@ionic/vue'
 import {
   chevronDownOutline
-} from 'ionicons/icons';
+} from 'ionicons/icons'
 
 const emit = defineEmits(['inputBeverage', 'inputBeverageSize']);
 const props = defineProps({

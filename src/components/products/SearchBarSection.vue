@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import SearchBar from '/src/components/home/SearchBarSection.vue';
+import SearchBar from '/src/components/home/SearchBarSection.vue'
 </script>
 
 <style lang="scss" scoped></style>

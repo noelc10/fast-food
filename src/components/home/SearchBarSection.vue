@@ -1,16 +1,16 @@
 <template>
   <ion-input type="search" size="large" :value="value" :placeholder="props.placeholder" @input="emit('input', $event.target.value)">
-    <ion-icon v-if="startIcon" slot="start" aria-hidden="true" color="primary" size="large" :ios="startIcon" :md="startIcon"></ion-icon>
-    <ion-icon v-if="endIcon" slot="end" aria-hidden="true" color="primary" size="large" :ios="endIcon" :md="endIcon"></ion-icon>
+    <ion-icon v-if="startIcon" slot="start" color="primary" size="large" :ios="startIcon" :md="startIcon"></ion-icon>
+    <ion-icon v-if="endIcon" slot="end" color="primary" size="large" :ios="endIcon" :md="endIcon"></ion-icon>
   </ion-input>
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from 'vue';
+import { defineProps, defineEmits } from 'vue'
 import {
   IonInput,
   IonIcon
-} from '@ionic/vue';
+} from '@ionic/vue'
 
 const props = defineProps({
   value: {

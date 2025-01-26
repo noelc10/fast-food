@@ -38,7 +38,7 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 import {
   IonContent,
   IonHeader,
@@ -48,12 +48,12 @@ import {
   IonImg,
   IonInput,
   IonPage
-} from '@ionic/vue';
+} from '@ionic/vue'
 
-const router = useRouter();
+const router = useRouter()
 
 function login () {
-  router.replace('/home');
+  router.replace('/home')
 }
 </script>
 

@@ -784,15 +784,29 @@ ion-fab {
 }
 
 .food-card {
-  width: 168px;
+  min-width: 142px;
+  max-width: 168px;
+  width: 100%;
   background-color: #E9ECEF;
   border-radius: 16px;
   padding: 16px;
   margin: 4px 4px;
+  flex-basis: 47.3%;
+
+  &.loyalty {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
 
   & > .food-card-img {
     height: 136px;
-    width: 136px;
+    width: auto;
+    align-content: center;
+  }
+
+  & > .loyalty-food-card-img {
+    height: auto;
+    width: 80px;
     align-content: center;
   }
 
@@ -813,7 +827,7 @@ ion-fab {
 
 .food-card .food-card-details-price,
 .addons-container .addons-details-price {
-  font-size: 16px;
+  font-size: min(4vw, 16px);
   font-weight: 700;
   line-height: 24px;
   color: #D71921;

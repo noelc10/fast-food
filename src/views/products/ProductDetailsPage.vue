@@ -1,26 +1,6 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true" class="shadow-none">
-      <ion-toolbar>
-        <div class="flex flex-row items-center">
-          <div class="pl-3 grow-0">
-            <ion-button
-              class="back-btn"
-              color="secondary"
-              @click="back"
-            >
-              <ion-icon :ios="chevronBack" :md="chevronBack" />
-            </ion-button>
-          </div>
-          <div class="grow px-4 py-5">
-            <h2 class="my-0 black--text font-bold">{{ product?.type }}</h2>
-          </div>
-          <div class="px-4 flex grow-0 items-center">
-            <ion-icon class="products-header-cart-icon" color="primary" src="/src/assets/images/cart.svg"></ion-icon>
-          </div>
-        </div>
-      </ion-toolbar>
-    </ion-header>
+    <app-header :product="product" />
 
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
@@ -123,10 +103,10 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref, watch, computed } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import { storeToRefs } from 'pinia';
-import { find, findIndex } from 'lodash';
+import { onMounted, onUnmounted, ref, watch, computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
+import { find, findIndex } from 'lodash'
 import {
   IonPage,
   IonHeader,
@@ -143,15 +123,16 @@ import {
   IonFab,
   IonFabButton,
   IonModal
-} from '@ionic/vue';
-import {
-  chevronBack
-} from 'ionicons/icons';
-import { useProductStore } from '@/store/productStore.js';
-import { useCartStore } from '@/store/cartStore.js';
-import CartCount from '@/components/products/product-details/CartCount.vue';
-import BeveragesSection from '@/components/products/product-details/BeveragesSection.vue';
-import AddOnsSection from '@/components/products/product-details/AddOnsSection.vue';
+} from '@ionic/vue'
+// import {
+//   chevronBack
+// } from 'ionicons/icons'
+import { useProductStore } from '@/store/productStore.js'
+import { useCartStore } from '@/store/cartStore.js'
+import AppHeader from '@/components/header/AppHeader.vue'
+import CartCount from '@/components/products/product-details/CartCount.vue'
+import BeveragesSection from '@/components/products/product-details/BeveragesSection.vue'
+import AddOnsSection from '@/components/products/product-details/AddOnsSection.vue'
 
 const modal = ref();
 const dismiss = () => modal.value.$el.dismiss();
@@ -161,7 +142,6 @@ const router = useRouter();
 const productStore = useProductStore();
 const cartStore = useCartStore();
 const { product } = storeToRefs(productStore);
-const { cart } = storeToRefs(cartStore);
 const rating = ref(0);
 const productCount = ref(1);
 const beverage = ref({
@@ -232,10 +212,6 @@ watch(product, (newVal) => {
 
 function init () {
   productStore.getProduct(route.params.id);
-}
-
-function back () {
-  router.go(-1)
 }
 
 function updateCount (count) {

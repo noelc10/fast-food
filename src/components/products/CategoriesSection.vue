@@ -14,10 +14,10 @@
 <script setup>
 import {
   ref
-} from 'vue';
+} from 'vue'
 import {
   IonButton
-} from '@ionic/vue';
+} from '@ionic/vue'
 
 const categories = ref([
   {

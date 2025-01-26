@@ -13,15 +13,15 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from 'vue';
+import { defineProps, defineEmits } from 'vue'
 import {
   IonButton,
   IonIcon
-} from '@ionic/vue';
+} from '@ionic/vue'
 import {
   addOutline,
   removeOutline
-} from 'ionicons/icons';
+} from 'ionicons/icons'
 
 const emit = defineEmits(['input']);
 const props = defineProps({

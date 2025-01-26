@@ -12,10 +12,10 @@
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia';
-import { useRouter } from 'vue-router';
-import { useProductStore } from '@/store/productStore.js';
-import ProductCard from '@/components/products/ProductCard.vue';
+import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
+import { useProductStore } from '@/store/productStore.js'
+import ProductCard from '@/components/products/ProductCard.vue'
 
 const router = useRouter();
 const productStore = useProductStore();

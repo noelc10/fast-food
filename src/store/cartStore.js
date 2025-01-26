@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 import { findIndex, each } from 'lodash'
 
 export const useCartStore = defineStore('cartStore', {

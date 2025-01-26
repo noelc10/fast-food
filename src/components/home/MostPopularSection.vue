@@ -16,9 +16,9 @@
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia';
-import { useProductStore } from '@/store/productStore.js';
-import ProductCard from '@/components/products/ProductCard.vue';
+import { storeToRefs } from 'pinia'
+import { useProductStore } from '@/store/productStore.js'
+import ProductCard from '@/components/products/ProductCard.vue'
 
 const productStore = useProductStore();
 const { products } = storeToRefs(productStore);

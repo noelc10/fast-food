@@ -21,7 +21,7 @@
 <script setup>
 import {
   ref
-} from 'vue';
+} from 'vue'
 
 const categories = ref([
   {

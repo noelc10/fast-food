@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia';
-import { find } from 'lodash';
+import { defineStore } from 'pinia'
+import { find } from 'lodash'
 
 export const useProductStore = defineStore('productStore', {
   state: () => ({
