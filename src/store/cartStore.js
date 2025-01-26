@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { findIndex, each } from 'lodash'
+import { findIndex, isEqualWith } from 'lodash'
 
 export const useCartStore = defineStore('cartStore', {
   state: () => ({
@@ -12,29 +12,19 @@ export const useCartStore = defineStore('cartStore', {
     },
 
     addItemToCart (item) {
-      // Temporarily disabled to have unique cart items and its details
-      // const index = findIndex(this.cart, { id: item.id });
-      // if (index >= 0) {
-      //   this.cart[index].count += item.count
-      //   if (item.addons.length) {
-      //     each(item.addons, (addon, i) => {
-      //       let exist = findIndex(this.cart[index].addons, { id: addon.id });
+      if (this.cart.length) {
+        const exist = findIndex(this.cart, (cartItem) => isEqualWith(cartItem, item, (val1, val2, key) => { 
+          if (key === 'count') {
+            return true
+          }
+         }))
 
-      //       if (exist >= 0) {
-      //         this.cart[index].addons[exist].count += addon.count
-      //       } else {
-      //         this.cart[index].addons[i] = addon
-      //       }
-      //     })
-      //   }
-      // END
+        if (exist >= 0) {
+          this.cart[exist].count += item.count
+          return
+        }
+      }
 
-      //   return
-      // }
-
-      // !item.count
-      //   ? item.count = 1
-      //   : null
       this.cart.push(item)
     },
 

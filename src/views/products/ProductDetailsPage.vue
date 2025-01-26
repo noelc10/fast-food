@@ -265,7 +265,7 @@ function addToCart () {
 function redirectToProducts () {
   close()
 
-  router.replace('/products')
+  router.back('-1')
 }
 
 onMounted(() => {
