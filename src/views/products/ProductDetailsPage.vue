@@ -76,7 +76,7 @@
         </ion-row>
       </ion-grid>
 
-      <ion-modal id="added-to-card-modal" ref="modal" trigger="added-to-cart-dialog">
+      <ion-modal id="added-to-card-modal" ref="modal" trigger="addedCartDialog">
         <div class="flex flex-col items-center added-to-card-modal-container">
           <ion-img
             alt="'Added to Cart'"
@@ -94,7 +94,7 @@
     <br />
     <br />
     <br />
-    <ion-fab id="added-to-cart-dialog" class="fab-btn" slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab id="addedCartDialog" class="fab-btn" slot="fixed" vertical="bottom" horizontal="end">
       <ion-fab-button @click="addToCart">
         Add to Bag!
       </ion-fab-button>
@@ -135,12 +135,12 @@ import BeveragesSection from '@/components/products/product-details/BeveragesSec
 import AddOnsSection from '@/components/products/product-details/AddOnsSection.vue'
 
 const modal = ref();
-const dismiss = () => modal.value.$el.dismiss();
+const close = () => modal.value.$el.dismiss();
 
 const route = useRoute();
 const router = useRouter();
+
 const productStore = useProductStore();
-const cartStore = useCartStore();
 const { product } = storeToRefs(productStore);
 const rating = ref(0);
 const productCount = ref(1);
@@ -247,6 +247,9 @@ function toggleAddonsItem (data) {
   addons.value.push(data)
 }
 
+
+const cartStore = useCartStore();
+
 function addToCart () {
   let item = {
     ...product.value,
@@ -260,7 +263,7 @@ function addToCart () {
 }
 
 function redirectToProducts () {
-  dismiss()
+  close()
 
   router.replace('/products')
 }

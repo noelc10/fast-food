@@ -38,7 +38,9 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
 import {
   IonContent,
   IonHeader,
@@ -49,12 +51,23 @@ import {
   IonInput,
   IonPage
 } from '@ionic/vue'
+import { useProfileStore } from '@/store/profileStore'
 
 const router = useRouter()
 
-function login () {
-  router.replace('/home')
+const profileStore = useProfileStore()
+const { user } = storeToRefs(profileStore)
+
+async function login () {
+  await profileStore.getUser()
+  router.push('/home')
 }
+
+onMounted(() => {
+  if (user) {
+    router.push('/home')
+  }
+})
 </script>
 
 <style lang="scss" scoped>

@@ -23,5 +23,3 @@ import ProductCard from '@/components/products/ProductCard.vue'
 const productStore = useProductStore();
 const { products } = storeToRefs(productStore);
 </script>
-
-<style lang="scss" scoped></style>

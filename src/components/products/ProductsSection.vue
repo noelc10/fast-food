@@ -18,6 +18,7 @@ import { useProductStore } from '@/store/productStore.js'
 import ProductCard from '@/components/products/ProductCard.vue'
 
 const router = useRouter();
+
 const productStore = useProductStore();
 const { products } = storeToRefs(productStore);
 
@@ -30,5 +31,3 @@ function productDetails (id) {
   });
 }
 </script>
-
-<style lang="scss" scoped></style>

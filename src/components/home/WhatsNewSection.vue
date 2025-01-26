@@ -11,9 +11,6 @@
   </div>
 </template>
 
-<script setup>
-</script>
-
 <style lang="scss" scoped>
 .whats-new-section-container {
   & > .whats-new-section {

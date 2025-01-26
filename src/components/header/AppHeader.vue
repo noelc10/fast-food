@@ -7,7 +7,7 @@
             v-if="route.name === 'product-details'"
             class="back-btn"
             color="secondary"
-            @click="back"
+            @click="backToProducts"
           >
             <ion-icon :ios="chevronBack" :md="chevronBack" />
           </ion-button>
@@ -31,7 +31,7 @@
         <div v-if="route.name === 'home'" class="flex items-center grow px-4 py-5">
           <img class="mr-4" alt="Loyalty Badge" :src="'/src/assets/images/navbar/crown.svg'" />
           <ion-label class="font-bold">
-            0 Points
+            {{ user?.loyalty_points }} Points
             <ion-icon size="small" color="primary" class="ml-2 self-center" :ios="chevronForward" :md="chevronForward"></ion-icon>
           </ion-label>
         </div>
@@ -40,7 +40,7 @@
           <ion-icon class="products-header-cart-icon" color="primary" src="/src/assets/images/cart.svg"></ion-icon>
         </div>
         <div v-if="route.name === 'home'" class="px-4 flex grow-0 items-center">
-          <ion-icon class="home-header-avatar" size="large" src="/src/assets/images/navbar/avatar.svg"></ion-icon>
+          <ion-icon :src="user?.avatar" class="home-header-avatar" size="large"></ion-icon>
         </div>
       </div>
     </ion-toolbar>
@@ -50,6 +50,7 @@
 <script setup>
 import { defineProps } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
 import {
   IonButton,
   IonHeader,
@@ -62,6 +63,7 @@ import {
   chevronBack,
   chevronForward
 } from 'ionicons/icons'
+import { useProfileStore } from '@/store/profileStore'
 
 const route = useRoute()
 const router = useRouter()
@@ -73,7 +75,10 @@ const props = defineProps({
   }
 })
 
-function back () {
-  router.go(-1)
+const profileStore = useProfileStore()
+const { user } = storeToRefs(profileStore)
+
+function backToProducts () {
+  router.replace('/products')
 }
 </script>

@@ -17,7 +17,7 @@
                 <ion-icon class="home-greetings-img" size="large" :ios="'/src/assets/images/logo.svg'" :md="'/src/assets/images/logo.svg'" />
               </div>
               <div>
-                <p class="my-0 mb-1">Anneoyong, Chou!</p>
+                <p class="my-0 mb-1">Anneoyong, {{ user?.first_name }}!</p>
                 <h2 class="my-0 font-bold">What do you want<br>to eat?</h2>
               </div>
             </div>
@@ -57,7 +57,7 @@
     <br />
     <br />
     <ion-fab class="fab-btn" slot="fixed" vertical="bottom" horizontal="end">
-      <ion-fab-button @click="() => router.replace('/products')">
+      <ion-fab-button @click="() => router.push('/products')">
         Order Now!
       </ion-fab-button>
     </ion-fab>
@@ -66,15 +66,13 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
 import {
-  // IonButton,
   IonCol,
   IonContent,
   IonGrid,
   IonHeader,
   IonIcon,
-  // IonLabel,
-  // IonMenuToggle,
   IonPage,
   IonRow,
   IonTitle,
@@ -82,9 +80,6 @@ import {
   IonFab,
   IonFabButton
 } from '@ionic/vue'
-// import {
-//   chevronForward
-// } from 'ionicons/icons'
 import AppHeader from '@/components/header/AppHeader.vue'
 import SearchBarSection from '@/components/home/SearchBarSection.vue'
 import SpecialOffersSection from '@/components/home/SpecialOffersSection.vue'
@@ -92,7 +87,12 @@ import CategorySection from '@/components/home/CategorySection.vue'
 import WhatsNewSection from '@/components/home/WhatsNewSection.vue'
 import MostPopularSection from '@/components/home/MostPopularSection.vue'
 
+import { useProfileStore } from '@/store/profileStore'
+
 const router = useRouter()
+
+const profileStore = useProfileStore()
+const { user } = storeToRefs(profileStore)
 </script>
 
 <style lang="scss" scoped>

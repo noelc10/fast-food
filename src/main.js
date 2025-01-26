@@ -49,15 +49,17 @@ const app = createApp(App)
   .use(IonicVue)
   .use(router)
   .use(pinia)
-  .use(VueApexCharts);
-const productStore = useProductStore();
-const profileStore = useProfileStore();
+  .use(VueApexCharts)
+const productStore = useProductStore()
+const profileStore = useProfileStore()
 
-productStore.getProducts();
-profileStore.getLoyaltyProducts();
+profileStore.clearUser()
+profileStore.getUser()
+profileStore.getLoyaltyProducts()
+productStore.getProducts()
 
-app.component('vue3-star-rating', vue3StarRatings);
+app.component('vue3-star-rating', vue3StarRatings)
 
 router.isReady().then(() => {
-  app.mount('#app');
-});
+  app.mount('#app')
+})

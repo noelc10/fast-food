@@ -4,7 +4,8 @@ import { find } from 'lodash'
 export const useProfileStore = defineStore('profileStore', {
   state: () => ({
     loyaltyProducts: [],
-    loyaltyProduct: null
+    loyaltyProduct: null,
+    user: null,
   }),
 
   actions: {
@@ -19,17 +20,32 @@ export const useProfileStore = defineStore('profileStore', {
         }
       ]
     },
+    
+    getUser () {
+      this.user = {
+        id: 1,
+        first_name: 'Chou',
+        last_name: 'Tzuyu',
+        phone: '+63 912 345 6789',
+        avatar: '/src/assets/images/navbar/avatar.svg',
+        loyalty_points: 0,
+      }
+    },
 
     getLoyaltyProduct (id) {
-      this.loyaltyProduct = find(this.loyaltyProducts, { 'id': Number(id) });
+      this.loyaltyProduct = find(this.loyaltyProducts, { 'id': Number(id) })
     },
 
     clearLoyaltyProducts () {
-      this.loyaltyProducts = [];
+      this.loyaltyProducts = []
     },
 
     clearProduct () {
-      this.loyaltyProduct = null;
+      this.loyaltyProduct = null
+    },
+
+    clearUser () {
+      this.user = null
     }
   }
 });

@@ -86,15 +86,15 @@ export const useProductStore = defineStore('productStore', {
     },
 
     getProduct (id) {
-      this.product = find(this.products, { 'id': Number(id) });
+      this.product = find(this.products, { 'id': Number(id) })
     },
 
     clearProducts () {
-      this.products = [];
+      this.products = []
     },
 
     clearProduct () {
-      this.product = null;
+      this.product = null
     }
   }
 });

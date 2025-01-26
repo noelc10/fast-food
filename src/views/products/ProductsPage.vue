@@ -35,11 +35,8 @@ import {
   IonGrid,
   IonRow,
   IonCol,
-  // IonButton,
   IonContent,
   IonHeader,
-  // IonIcon,
-  // IonMenuToggle,
   IonPage,
   IonTitle,
   IonToolbar

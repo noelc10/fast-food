@@ -88,9 +88,9 @@ import ProfileRewardsLevels from '@/components/profile/ProfileRewardsLevels.vue'
 import ProductCard from '@/components/products/ProductCard.vue'
 
 const profileStore = useProfileStore()
-const { loyaltyProducts } = storeToRefs(profileStore)
+const { user, loyaltyProducts } = storeToRefs(profileStore)
 
-const series = ref([0])
+const series = ref([user.value?.loyalty_points])
 const chartOptions = ref(
   {
     chart: {

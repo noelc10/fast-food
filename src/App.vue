@@ -1,23 +1,23 @@
 <template>
   <ion-app>
     <ion-split-pane content-id="main-content">
-      <ion-menu content-id="main-content" type="overlay">
+      <ion-menu v-if="user" content-id="main-content" type="overlay">
         <ion-content>
           <ion-list id="navbar-list">
             <ion-grid>
               <ion-row class="ion-justify-content-between">
-                <ion-col size="4" class="ion-align-self-center">
+                <ion-col size="auto" class="ion-align-self-center">
                   <ion-avatar>
-                    <img src="/src/assets/images/navbar/avatar.svg" alt="Avatar" />
+                    <img :src="user?.avatar" alt="Avatar" />
                   </ion-avatar>
                 </ion-col>
-                <ion-col size="8" class="ion-align-self-center">
+                <ion-col class="ion-align-self-center">
                   <ion-menu-toggle :auto-hide="false">
                     <ion-list class="px-0 acc-points-sec">
                       <ion-item :router-link="'/profile'" :detail="false" router-direction="root" lines="none" class="hydrated">
                         <ion-icon slot="start" class="mr-4" :ios="'/src/assets/images/navbar/crown.svg'" :md="'/src/assets/images/navbar/crown.svg'"></ion-icon>
                         <ion-label class="font-bold">
-                          0 Points
+                          {{ user?.loyalty_points }} Points
                           <ion-icon size="small" color="primary" class="ml-2" :ios="chevronForward" :md="chevronForward"></ion-icon>
                         </ion-label>
                       </ion-item>
@@ -26,8 +26,8 @@
                 </ion-col>
               </ion-row>
             </ion-grid>
-            <ion-list-header class="mb-1">Chou Tzuyu</ion-list-header>
-            <ion-note>+63 912 345 6789</ion-note>
+            <ion-list-header class="mb-1">{{ userFullName }}</ion-list-header>
+            <ion-note>{{ user?.phone }}</ion-note>
 
             <ion-menu-toggle :auto-hide="false" v-for="(p, i) in navbarPages" :key="i">
               <ion-item v-if="p.title === 'Home' || p.title === 'Order Now'" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: $route.name === p.name }">
@@ -63,6 +63,9 @@
 </template>
 
 <script setup>
+import { onMounted, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
 import {
   IonApp,
   IonAvatar,
@@ -86,6 +89,10 @@ import {
 import {
   chevronForward
 } from 'ionicons/icons'
+import { useProfileStore } from '@/store/profileStore'
+import { useCartStore } from '@/store/cartStore'
+
+const router = useRouter()
 
 const navbarPages = [
   {
@@ -168,9 +175,24 @@ const navbar2Pages = [
   }
 ];
 
-function logout () {
-  window.location = '/login'
+const profileStore = useProfileStore()
+const cartStore = useCartStore()
+const { user } = storeToRefs(profileStore)
+const { cart } = storeToRefs(cartStore)
+const userFullName = computed(() => {
+  return `${user.value?.first_name} ${user.value?.last_name}`
+})
+
+async function logout() {
+  await profileStore.clearUser()
+  router.push('/login')
 }
+
+onMounted(() => {
+  if (!user.value) {
+    router.push('/login')
+  }
+})
 </script>
 
 <style lang="scss" scoped>
