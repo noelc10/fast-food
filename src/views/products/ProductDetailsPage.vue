@@ -76,7 +76,7 @@
         </ion-row>
       </ion-grid>
 
-      <ion-modal id="added-to-card-modal" ref="modal" trigger="addedCartDialog">
+      <ion-modal :can-dismiss="addedToCartDialogCanDismiss" id="added-to-card-modal" ref="modal" trigger="addedCartDialog">
         <div class="flex flex-col items-center added-to-card-modal-container">
           <ion-img
             alt="'Added to Cart'"
@@ -142,6 +142,8 @@ const router = useRouter();
 
 const productStore = useProductStore();
 const { product } = storeToRefs(productStore);
+
+const addedToCartDialogCanDismiss = ref(false)
 const rating = ref(0);
 const productCount = ref(1);
 const beverage = ref({
@@ -250,7 +252,7 @@ function toggleAddonsItem (data) {
 
 const cartStore = useCartStore();
 
-function addToCart () {
+async function addToCart () {
   let item = {
     ...product.value,
     count: productCount.value,
@@ -259,10 +261,25 @@ function addToCart () {
     addons: addons.value
   }
 
-  cartStore.addItemToCart(item)
+  await cartStore.addItemToCart(item)
+  clearToCartData()
+}
+
+function clearToCartData () {
+  productCount.value = 1
+  beverage.value = {
+    value: 'coke',
+    text: 'Coke'
+  }
+  beverageSize.value = {
+    value: 'regular',
+    text: 'Regular'
+  }
+  addons.value = []
 }
 
 function redirectToProducts () {
+  addedToCartDialogCanDismiss.value = true
   close()
 
   router.back('-1')
