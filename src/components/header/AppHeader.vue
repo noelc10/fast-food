@@ -2,12 +2,12 @@
   <ion-header :translucent="true" class="shadow-none">
     <ion-toolbar>
       <div class="flex flex-row items-center">
-        <div :class="{ 'pl-3': route.name === 'product-details' }" class="grow-0">
+        <div :class="{ 'pl-3': route.name === 'product-details' || route.name === 'cart' }" class="grow-0">
           <ion-button
-            v-if="route.name === 'product-details'"
+            v-if="route.name === 'product-details' || route.name === 'cart'"
             class="back-btn"
             color="secondary"
-            @click="backToProducts"
+            @click="back"
           >
             <ion-icon :ios="chevronBack" :md="chevronBack" />
           </ion-button>
@@ -18,12 +18,14 @@
           </ion-menu-toggle>
         </div>
 
-
         <div v-if="route.name === 'profile'" class="grow px-4 py-5">
           <h2 class="my-0 black--text font-bold">Loyalty Points</h2>
         </div>
         <div v-if="route.name === 'products'" class="grow px-4 py-5">
           <h2 class="my-0 black--text font-bold">Our Foods</h2>
+        </div>
+        <div v-if="route.name === 'cart'" class="grow px-4 py-5">
+          <h2 class="my-0 black--text font-bold">Order Summary</h2>
         </div>
         <div v-if="route.name === 'product-details'" class="grow px-4 py-5">
           <h2 class="my-0 black--text font-bold">{{ props.product?.type }}</h2>
@@ -78,7 +80,15 @@ const props = defineProps({
 const profileStore = useProfileStore()
 const { user } = storeToRefs(profileStore)
 
-function backToProducts () {
-  router.replace('/products')
+function back () {
+  router.back('-1')
 }
 </script>
+
+<style lang="scss" scoped>
+ion-button.back-btn {
+  --box-shadow: none;
+  --padding-start: 10px;
+  --padding-end: 10px;
+}
+</style>

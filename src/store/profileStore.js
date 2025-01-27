@@ -27,8 +27,21 @@ export const useProfileStore = defineStore('profileStore', {
         first_name: 'Chou',
         last_name: 'Tzuyu',
         phone: '+63 912 345 6789',
+        email: 'chou.tzu-yu@email.com',
         avatar: '/src/assets/images/navbar/avatar.svg',
         loyalty_points: 0,
+        address: [
+          {
+            id: 1,
+            value: 'No. 21 St. Agustin Streen, Brgy. De Jose Delgado City 2234 Philippines',
+            label: 'My Home Address'
+          },
+          {
+            id: 2,
+            value: '3rd flr Anyeong Bldg. Seareal St. Joaqin City 3456 Philippines',
+            label: 'Work/Office'
+          }
+        ]
       }
     },
 

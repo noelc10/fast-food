@@ -18,7 +18,6 @@ const emit = defineEmits(['triggerSearch'])
 const search = ref('')
 
 const onClickOrKeydownSearch = debounce(async () => {
-  console.log('search: ', search.value)
   emit('triggerSearch', search.value)
 }, 500)
 </script>

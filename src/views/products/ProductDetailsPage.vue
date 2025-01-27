@@ -299,11 +299,6 @@ ion-page {
   padding-bottom: 4em;
 }
 
-ion-button.back-btn {
-  --padding-start: 10px;
-  --padding-end: 10px;
-}
-
 :deep(.product-details-container) {
   & > .product-details-img {
     background-color: #E9ECEF;

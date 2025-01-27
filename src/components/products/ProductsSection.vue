@@ -19,6 +19,9 @@ import { ref, defineProps, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { filter } from 'lodash'
+import {
+  IonText
+} from '@ionic/vue'
 import { useProductStore } from '@/store/productStore.js'
 import ProductCard from '@/components/products/ProductCard.vue'
 
