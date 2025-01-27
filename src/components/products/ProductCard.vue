@@ -8,7 +8,7 @@
         {{ props.product.title }}
       </div>
       <div class="truncate ion-text-capitalize food-card-subtitle">
-        {{ props.product.type }}
+        {{ props.product.category.text }}
       </div>
       <div v-if="props.type === 'product'" class="mt-4 flex justify-between items-center food-card-details">
         <div class="food-card-details-price">P {{ props.product.price }}</div>

@@ -12,17 +12,20 @@
       <ion-grid>
         <ion-row>
           <ion-col>
-            <search-bar-section />
+            <search-bar-section @triggerSearch="triggerSearch" />
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <categories-section />
+            <categories-section @triggerCategory="triggerCategory" />
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <products-section />
+            <products-section
+              :search="search"
+              :category="category"
+            />
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -31,6 +34,7 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import {
   IonGrid,
   IonRow,
@@ -45,6 +49,16 @@ import AppHeader from '@/components/header/AppHeader.vue'
 import SearchBarSection from '@/components/products/SearchBarSection.vue'
 import CategoriesSection from '@/components/products/CategoriesSection.vue'
 import ProductsSection from '@/components/products/ProductsSection.vue'
+
+const search = ref('')
+const triggerSearch = (value) => {
+  search.value = value
+}
+
+const category = ref('')
+const triggerCategory = (value) => {
+  category.value = value
+}
 </script>
 
 <style lang="scss" scoped>

@@ -14,7 +14,10 @@ export const useProductStore = defineStore('productStore', {
           id: 1,
           img: '/src/assets/images/foods/food-1.png',
           title: 'Steak Fries Veggies',
-          type: 'Meat',
+          category: {
+            value: 'meat',
+            text: 'Meat'
+          },
           price: '175',
           rating: 4.5,
           description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.'
@@ -23,7 +26,10 @@ export const useProductStore = defineStore('productStore', {
           id: 2,
           img: '/src/assets/images/foods/food-2.png',
           title: 'Chicken Salad',
-          type: 'Chicken',
+          category: {
+            value: 'chicken',
+            text: 'Chicken'
+          },
           price: '172',
           rating: 4.5,
           description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.'
@@ -32,7 +38,10 @@ export const useProductStore = defineStore('productStore', {
           id: 3,
           img: '/src/assets/images/foods/food-3.png',
           title: 'Sorvetes Primavera ..',
-          type: 'Dessert',
+          category: {
+            value: 'dessert',
+            text: 'Dessert'
+          },
           price: '185',
           rating: 4.5,
           description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.'
@@ -41,7 +50,10 @@ export const useProductStore = defineStore('productStore', {
           id: 4,
           img: '/src/assets/images/foods/food-4.png',
           title: 'Fried Chicken',
-          type: 'Chicken',
+          category: {
+            value: 'chicken',
+            text: 'Chicken'
+          },
           price: '175',
           rating: 4.5,
           description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.'
@@ -50,7 +62,10 @@ export const useProductStore = defineStore('productStore', {
           id: 5,
           img: '/src/assets/images/foods/food-1.png',
           title: 'Steak Fries Veggies',
-          type: 'Meat',
+          category: {
+            value: 'meat',
+            text: 'Meat'
+          },
           price: '175',
           rating: 4.5,
           description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.'
@@ -59,7 +74,10 @@ export const useProductStore = defineStore('productStore', {
           id: 6,
           img: '/src/assets/images/foods/food-2.png',
           title: 'Chicken Salad',
-          type: 'Chicken',
+          category: {
+            value: 'chicken',
+            text: 'Chicken'
+          },
           price: '172',
           rating: 4.5,
           description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.'
@@ -68,7 +86,10 @@ export const useProductStore = defineStore('productStore', {
           id: 7,
           img: '/src/assets/images/foods/food-3.png',
           title: 'Sorvetes Primavera ..',
-          type: 'Dessert',
+          category: {
+            value: 'dessert',
+            text: 'Dessert'
+          },
           price: '185',
           rating: 4.5,
           description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.'
@@ -77,7 +98,10 @@ export const useProductStore = defineStore('productStore', {
           id: 8,
           img: '/src/assets/images/foods/food-4.png',
           title: 'Fried Chicken',
-          type: 'Chicken',
+          category: {
+            value: 'chicken',
+            text: 'Chicken'
+          },
           price: '175',
           rating: 4.5,
           description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.'

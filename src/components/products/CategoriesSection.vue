@@ -13,12 +13,14 @@
 
 <script setup>
 import {
-  ref
+  ref,
+  defineEmits
 } from 'vue'
 import {
   IonButton
 } from '@ionic/vue'
 
+const emit = defineEmits(['triggerCategory'])
 const categories = ref([
   {
     value: '',
@@ -45,6 +47,7 @@ const categorySelected = ref('');
 
 function setCategory (category) {
   categorySelected.value = category
+  emit('triggerCategory', categorySelected.value)
 }
 </script>
 
