@@ -30,7 +30,6 @@ export const useCartStore = defineStore('cartStore', {
 
     removeItemToCart (item) {
       const exist = findIndex(this.cart, (cartItem) => {
-        console.log(isEqual(cartItem, item))
         return isEqual(cartItem, item)
       })
       
