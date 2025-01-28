@@ -5,7 +5,7 @@
     <ion-content :fullscreen="true">
       <div class="flex flex-col">
         <cart-user-contact-card :user="user" />
-        <cart-user-address-cards :addresses="user.address" />
+        <cart-user-address-cards :addresses="user?.address" />
         
         <div class="grow px-4 py-5">
           <h2 class="my-0 black--text font-bold">Orders</h2>
@@ -82,7 +82,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import {
@@ -179,8 +179,14 @@ async function removeCartItem (item) {
 
 const router = useRouter()
 function proceedOrder () {
-  router.push('/order-success')
+  router.push('/cart/success')
 }
+
+onMounted(() => {
+  if (!cart.value.length) {
+    router.push('/home')
+  }
+})
 </script>
 
 <style lang="scss" scoped>

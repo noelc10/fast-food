@@ -90,7 +90,6 @@ import {
   chevronForward
 } from 'ionicons/icons'
 import { useProfileStore } from '@/store/profileStore'
-import { useCartStore } from '@/store/cartStore'
 
 const router = useRouter()
 
@@ -176,9 +175,7 @@ const navbar2Pages = [
 ];
 
 const profileStore = useProfileStore()
-const cartStore = useCartStore()
 const { user } = storeToRefs(profileStore)
-const { cart } = storeToRefs(cartStore)
 const userFullName = computed(() => {
   return `${user.value?.first_name} ${user.value?.last_name}`
 })

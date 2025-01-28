@@ -46,7 +46,7 @@
       <ion-button class="mx-2 cart-user-order-action-button-warning">
         <ion-icon color="warning" size="large" :ios="pencilOutline" :md="pencilOutline"></ion-icon>
       </ion-button>
-      <ion-button @click="removeItem(item)" class="mx-2 cart-user-order-action-button-danger">
+      <ion-button @click="removeItem(props.cartItem)" class="mx-2 cart-user-order-action-button-danger">
         <ion-icon color="danger" size="large" :ios="trashOutline" :md="trashOutline"></ion-icon>
       </ion-button>
     </ion-item-options>
@@ -77,7 +77,7 @@ const props = defineProps({
     default: null
   }
 })
-const emit = defineEmits(['onIncrementCount', 'onDecrementCount'])
+const emit = defineEmits(['onIncrementCount', 'onDecrementCount', 'onRemoveItem'])
 const cartItemTotal = computed(() => {
   let addOnTotal = 0
 
