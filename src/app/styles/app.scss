@@ -696,7 +696,10 @@ $screen-breakpoints: (
 }
 
 hr.separator {
+  width: auto;
   background-color: #DEE2E6;
+  border: 0px solid #DEE2E6;
+  color: #DEE2E6;
   margin-left: 8px;
   margin-right: 8px;
 }
@@ -826,7 +829,8 @@ ion-fab {
 }
 
 .food-card .food-card-details-price,
-.addons-container .addons-details-price {
+.addons-container .addons-details-price,
+.cart-user-order-card .cart-user-order-details-price {
   font-size: min(4vw, 16px);
   font-weight: 700;
   line-height: 24px;

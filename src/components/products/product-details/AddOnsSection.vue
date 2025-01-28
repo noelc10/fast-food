@@ -31,7 +31,8 @@
             <cart-count
               :value="addonItem.count"
               :disabled="addOnNotExistOnAddonCartData(addonItem)"
-              @input="updateAddonListToCartItemCount($event, addonItem)"
+              @incrementCount="updateAddonListToCartItemCount($event, addonItem)"
+              @decrementCount="updateAddonListToCartItemCount($event, addonItem)"
             />
           </div>
         </div>

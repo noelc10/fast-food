@@ -23,7 +23,7 @@ import {
   removeOutline
 } from 'ionicons/icons'
 
-const emit = defineEmits(['input']);
+const emit = defineEmits(['incrementCount', 'decrementCount']);
 const props = defineProps({
   value: {
     type: [Number, String],
@@ -37,14 +37,14 @@ const props = defineProps({
 
 function incrementCount () {
   let count = props.value + 1;
-  emit('input', count);
+  emit('incrementCount', count);
 }
 
 function decrementCount () {
   let count = props.value - 1;
   
   if (count >= 1) {
-    emit('input', count);
+    emit('decrementCount', count);
   }
 }
 

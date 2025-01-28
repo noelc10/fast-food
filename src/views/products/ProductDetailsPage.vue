@@ -45,7 +45,8 @@
                 <div class="product-details-count-container">
                   <cart-count
                     :value="productCount"
-                    @input="updateCount"
+                    @incrementCount="updateCount"
+                    @decrementCount="updateCount"
                   />
                 </div>
               </div>
@@ -86,7 +87,7 @@
           <ion-text color="medium">What do you want to do now?</ion-text>
           <br />
           <br />
-          <ion-button buttonType="button" color="primary" expand="block" size="large">Proceed to Checkout</ion-button>
+          <ion-button buttonType="button" color="primary" expand="block" size="large" @click="redirectToCart">Proceed to Checkout</ion-button>
           <ion-button buttonType="button" color="primary" fill="clear" expand="block" size="large" @click="redirectToProducts">Add More</ion-button>
         </div>
       </ion-modal>
@@ -257,7 +258,7 @@ async function addToCart () {
     ...product.value,
     count: productCount.value,
     beverage: beverage.value,
-    'beverage-size': beverageSize.value,
+    beverage_size: beverageSize.value,
     addons: addons.value
   }
 
@@ -276,6 +277,13 @@ function clearToCartData () {
     text: 'Regular'
   }
   addons.value = []
+}
+
+function redirectToCart () {
+  addedToCartDialogCanDismiss.value = true
+  close()
+
+  router.push('/cart')
 }
 
 function redirectToProducts () {
@@ -349,7 +357,8 @@ ion-fab {
     --border-radius: 16px;
     --color: white;
     font-weight: 700;
-    width: 355px;
+    max-width: 355px;
+    width: 94vw;
   }
 }
 

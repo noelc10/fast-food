@@ -30,26 +30,24 @@ export const useCartStore = defineStore('cartStore', {
 
     removeItemToCart (item) {
       const index = findIndex(this.cart, { id: item.id })
-      if (index) {
+      if (index >= 0) {
         this.cart.splice(index, 1)
       }
     },
 
     increaseCartItemCount (item) {
       const index = findIndex(this.cart, { id: item.id })
-      if (index) {
-        this.cart[index].count = this.cart[index].count++
+      if (index >= 0) {
+        this.cart[index].count++
       }
     },
 
     decreaseCartItemCount (item) {
       const index = findIndex(this.cart, { id: item.id })
-      if (index) {
-        if (item.count && item.count <= 0) {
-          this.removeItemToCart(item)
+      if (index >= 0) {
+        if (item.count && item.count > 1) {
+          this.cart[index].count--
         }
-
-        this.cart[index].count = this.cart[index].count--
       }
     },
 
