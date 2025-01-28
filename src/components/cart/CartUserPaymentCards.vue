@@ -47,8 +47,6 @@ import {
   IonRadio,
   IonRadioGroup,
   IonText,
-  IonList,
-  IonItem,
   IonLabel,
   IonImg
 } from '@ionic/vue'
